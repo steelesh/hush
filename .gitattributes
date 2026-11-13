@@ -1,0 +1,4 @@
+* text=auto eol=lf
+themes/** linguist-generated
+lua/sotto/palette.lua linguist-generated
+samples/** linguist-documentation

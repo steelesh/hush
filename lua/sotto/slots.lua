@@ -1,0 +1,26 @@
+return function(c, black)
+  return {
+    bg = black and c.pitch or c.still,
+    float = c.room,
+    line = c.lull,
+    current = c.near,
+    select = c.held,
+    fg = c.voice,
+    muted = c.murmur,
+    comment = c.whisper,
+    dim = c.breath,
+    border = c.trace,
+    emphasis = c.call,
+    heading = c.aside,
+    danger = c.sharp,
+    warning = c.flat,
+    info = c.cue,
+    hint = c.nudge,
+    success = c.grown,
+    search = c.tint_search,
+    diff_add = c.tint_add,
+    diff_add_text = c.tint_add_strong,
+    diff_change = c.tint_change,
+    diff_delete = c.tint_delete,
+  }
+end

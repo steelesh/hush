@@ -1,0 +1,41 @@
+{
+  "colors": {
+    "voice": { "hex": "#dcdae7", "group": "text", "use": "main text, identifiers" },
+    "murmur": { "hex": "#9d9bad", "group": "text", "use": "operators, punctuation, secondary labels" },
+    "whisper": { "hex": "#8f8c9e", "group": "text", "use": "comments, descriptions" },
+    "breath": { "hex": "#898695", "group": "text", "use": "line numbers, ghost text, hints: dim but read" },
+    "trace": { "hex": "#5f5b67", "group": "text", "use": "borders, separators, guides: never text" },
+
+    "call": { "hex": "#dda9a9", "group": "accent", "use": "functions, booleans; the signature accent for matches and titles" },
+    "said": { "hex": "#cdb496", "group": "accent", "use": "strings, numbers, literals" },
+    "form": { "hex": "#b1cbc3", "group": "accent", "use": "types, properties, tags" },
+    "rest": { "hex": "#8ba8bb", "group": "accent", "use": "keywords, statements, storage" },
+    "aside": { "hex": "#c6b7d7", "group": "accent", "use": "parameters, annotations, headings, links" },
+
+    "sharp": { "hex": "#d47a80", "group": "signal", "use": "error, removed" },
+    "flat": { "hex": "#deb775", "group": "signal", "use": "warning, changed" },
+    "cue": { "hex": "#9dabc8", "group": "signal", "use": "info" },
+    "nudge": { "hex": "#a398ba", "group": "signal", "use": "hint" },
+    "grown": { "hex": "#96bba6", "group": "signal", "use": "ok, added" },
+
+    "pitch": { "hex": "#000000", "group": "surface", "use": "the terminal page; text drawn on an accent" },
+    "still": { "hex": "#121212", "group": "surface", "use": "an editor's own opaque page" },
+    "room": { "hex": "#181818", "group": "surface", "use": "floats, menus" },
+    "lull": { "hex": "#1f1f1f", "group": "surface", "use": "code blocks, subtle emphasis" },
+    "near": { "hex": "#222222", "group": "surface", "use": "the current item in a list" },
+    "held": { "hex": "#262626", "group": "surface", "use": "selection, matching bracket" },
+
+    "tint_add": { "hex": "#0a2224", "group": "tint", "use": "added lines" },
+    "tint_add_strong": { "hex": "#0c292b", "group": "tint", "use": "changed words in an added line" },
+    "tint_change": { "hex": "#1f1e38", "group": "tint", "use": "changed lines" },
+    "tint_delete": { "hex": "#30181b", "group": "tint", "use": "removed lines" },
+    "tint_delete_strong": { "hex": "#3b1d20", "group": "tint", "use": "changed words in a removed line" },
+    "tint_search": { "hex": "#492e1b", "group": "tint", "use": "search matches other than the current one" },
+
+    "caret": { "hex": "#dcbab8", "group": "cursor", "use": "the cursor" }
+  },
+  "ansi": [
+    "lull", "sharp", "grown", "said", "cue", "aside", "form", "voice",
+    "whisper", "sharp", "grown", "said", "cue", "aside", "form", "voice"
+  ]
+}

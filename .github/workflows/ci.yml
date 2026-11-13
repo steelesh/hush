@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install pinned tools
+        uses: jdx/mise-action@d5574b52816a478f9d4e6529a3f6ff17a8a36785 # v5.2.8
+      - name: install xmllint for the icon tests
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libxml2-utils
+      - name: lint, format and types
+        run: mise run lint
+      - name: generated files match the palette
+        run: mise run check
+      - name: palette, file and neovim tests
+        run: mise run test
+      - name: validate themes with the tools the runner has and flag each check it skips
+        shell: bash
+        run: |
+          mise run validate | tee "$RUNNER_TEMP/validate.log"
+          grep -o 'skip  .*' "$RUNNER_TEMP/validate.log" | sed 's/^skip  /::notice title=validation check skipped::/' || true

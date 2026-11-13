@@ -1,0 +1,1 @@
+require("sotto").load()

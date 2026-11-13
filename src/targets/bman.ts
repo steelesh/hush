@@ -1,0 +1,163 @@
+import type { Target } from "../target.ts";
+import { sheet } from "./stylesheet.ts";
+
+const rules = `div.head, div.foot {
+  display: flex;
+  color: var(--fg-faint);
+  font-size: 13px;
+}
+
+div.head { margin-bottom: 4px; }
+div.foot { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 12px; }
+
+div.head > span, div.foot > span { flex: 1; }
+span.head-vol, span.foot-date { text-align: center; }
+span.head-rtitle, span.foot-right { text-align: right; }
+
+.manual-text { margin-top: 24px; }
+
+section.Sh { margin-top: 36px; }
+section.Sh:first-child { margin-top: 0; }
+section.Ss { margin-top: 24px; }
+
+h2.Sh {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent2);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+h3.Ss {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+
+p.Pp { margin: 8px 0; }
+
+a { color: var(--accent2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:active { opacity: 0.8; }
+a.permalink { color: inherit; }
+a.permalink:hover { color: var(--accent); }
+a.Sx { color: var(--accent); }
+
+code, pre, .Li {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 14px;
+}
+
+code.Nm { color: var(--accent); font-weight: 600; }
+span.Nd { color: var(--fg-dim); }
+
+code.Fl { color: var(--type); }
+code.Cm { color: var(--type); }
+code.Ic { color: var(--type); font-weight: 500; }
+
+var.Ar { color: var(--accent2); font-style: normal; text-decoration: underline; }
+
+code.Li {
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+var.Va { color: var(--fg); font-style: normal; }
+code.Ev { color: var(--accent); }
+
+code.Dv { color: var(--string); }
+code.Er { color: var(--error); }
+
+span.Pa { color: var(--string); font-style: normal; }
+
+i.Em { font-style: normal; text-decoration: underline; color: var(--fg); }
+b.Sy { font-weight: 700; color: var(--fg); }
+span.No { color: var(--fg); }
+
+code.Fn { color: var(--accent); font-weight: 600; }
+var.Fa { color: var(--accent2); font-style: normal; text-decoration: underline; }
+var.Ft { color: var(--type); font-style: normal; }
+var.Vt { color: var(--type); font-style: normal; }
+code.In { color: var(--string); }
+
+span.Lb { color: var(--fg-dim); font-style: normal; }
+
+span.St { color: var(--fg-dim); }
+span.Ux { color: var(--fg-dim); }
+
+span.An { color: var(--fg); }
+
+dl.Bl-tag { margin: 8px 0; }
+dl.Bl-tag dt {
+  color: var(--fg);
+  font-weight: 600;
+  margin-top: 14px;
+  padding-top: 2px;
+}
+dl.Bl-tag dd {
+  margin-left: 24px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+dl.Bl-tag.Bl-compact dt { margin-top: 4px; }
+dl.Bl-tag.Bl-compact dd { margin-bottom: 0; }
+
+ul.Bl-bullet, ul.Bl-dash {
+  margin: 8px 0;
+  padding-left: 24px;
+}
+ul.Bl-bullet > li, ul.Bl-dash > li { margin: 4px 0; }
+ul.Bl-bullet.Bl-compact > li, ul.Bl-dash.Bl-compact > li { margin: 1px 0; }
+
+ol.Bl-enum {
+  margin: 8px 0;
+  padding-left: 24px;
+}
+ol.Bl-enum > li { margin: 4px 0; }
+ol.Bl-enum.Bl-compact > li { margin: 1px 0; }
+
+ul.Bl-item { margin: 8px 0; padding-left: 0; list-style: none; }
+ul.Bl-item > li { margin: 4px 0; }
+ul.Bl-item.Bl-compact > li { margin: 1px 0; }
+
+table.Bl-column { margin: 8px 0; border: none; }
+table.Bl-column td { border: none; padding: 2px 16px 2px 0; vertical-align: top; }
+table.Bl-column.Bl-compact td { padding-top: 0; padding-bottom: 0; }
+
+div.Bd-indent { margin-left: 24px; }
+
+div.Bd {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  overflow-x: auto;
+  white-space: pre;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+table.Nm { border: none; margin: 0; }
+table.Nm td { border: none; padding: 0 4px 0 0; vertical-align: top; background: none; }
+
+table { border-collapse: collapse; margin: 12px 0; }
+td, th { padding: 4px 12px; vertical-align: top; }
+
+span.Rs { display: block; margin: 8px 0 8px 24px; color: var(--fg-dim); }
+span.RsA { color: var(--fg); }
+
+b { font-weight: 700; color: var(--fg); }
+i, em, cite { font-style: normal; text-decoration: underline; }
+var { font-style: normal; }
+`;
+
+export const bman: Target = {
+  name: "bman",
+  files: ({ colors }) => [{ path: "themes/bman/sotto.css", content: sheet(colors, rules) }],
+};

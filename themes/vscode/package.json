@@ -1,0 +1,68 @@
+{
+  "name": "sotto",
+  "displayName": "Sotto",
+  "description": "a quiet dark theme in muted pastels.",
+  "version": "0.1.0",
+  "publisher": "steelesh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steelesh/sotto"
+  },
+  "homepage": "https://github.com/steelesh/sotto#readme",
+  "bugs": {
+    "url": "https://github.com/steelesh/sotto/issues"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "dark",
+    "quiet",
+    "pastel",
+    "muted",
+    "soft",
+    "calm",
+    "minimal",
+    "low-contrast",
+    "oled",
+    "color-theme",
+    "icon-theme",
+    "file-icons"
+  ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Sotto",
+        "uiTheme": "vs-dark",
+        "path": "./themes/sotto-color-theme.json"
+      },
+      {
+        "label": "Sotto Black",
+        "uiTheme": "vs-dark",
+        "path": "./themes/sotto-black-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "sotto",
+        "label": "Sotto",
+        "path": "./icons/sotto-icon-theme.json"
+      }
+    ]
+  },
+  "files": [
+    "LICENSE",
+    "icon.png",
+    "themes",
+    "icons"
+  ]
+}

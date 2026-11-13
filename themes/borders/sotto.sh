@@ -1,0 +1,2 @@
+active_color=0xff9d9bad
+inactive_color=0xff5f5b67

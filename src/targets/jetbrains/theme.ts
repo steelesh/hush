@@ -534,8 +534,8 @@ function ui(c: Colors, raw: Colors): Sheet {
       bottomSeparatorColor: c.trace,
       focusCellBackground: c.near,
     }),
-    "SearchMatch.startBackground": c.tint_search,
-    "SearchMatch.endBackground": c.tint_search,
+    "SearchMatch.startBackground": c.call,
+    "SearchMatch.endBackground": c.call,
     ...under("SpeedSearch", { background: c.room, foreground: c.voice, borderColor: c.trace, errorForeground: c.sharp }),
   };
 

@@ -51,7 +51,10 @@ def main():
     for theme_file in resources.glob('*.theme.json'):
         theme = json.loads(theme_file.read_text())
         custom = theme['icons']
-        theme['icons'] = {**replacements, **custom}
+        scoped = {plugin: paths for plugin, paths in custom.items() if isinstance(paths, dict) and plugin != 'ColorPalette'}
+        theme['icons'] = {**replacements, **{key: value for key, value in custom.items() if key not in scoped}}
+        for plugin, paths in scoped.items():
+            theme['icons'][plugin] = {**replacements.get(plugin, {}), **paths, **{path.lstrip('/'): target for path, target in paths.items()}}
         for path, target in custom.items():
             if path.startswith('/'):
                 theme['icons'][path.lstrip('/')] = target
@@ -61,6 +64,10 @@ def main():
                 record['target'] = custom[custom_key]
                 theme['icons'][record['path']] = record['target']
                 theme['icons']['/' + record['path']] = record['target']
+            elif record['scope'] != 'platform' and custom_key in scoped.get(record['pluginId'], {}):
+                record['target'] = scoped[record['pluginId']][custom_key]
+                theme['icons'][record['pluginId']][record['path']] = record['target']
+                theme['icons'][record['pluginId']]['/' + record['path']] = record['target']
         theme_file.write_text(json.dumps(theme, indent=2) + '\n')
     used = {Path(record['target']).name for record in coverage if record['target'].startswith('/icons/sotto/imported/')}
     used.update(name.replace('.png', '@2x.png') for name in list(used) if name.endswith('.png'))

@@ -4,7 +4,7 @@ import { test } from "node:test";
 import meta from "../package.json" with { type: "json" };
 import { load } from "../src/palette.ts";
 import { syntax } from "../src/syntax.ts";
-import { folderIcons } from "../src/targets/jetbrains/icons.ts";
+import { fileIcons, folderIcons } from "../src/targets/jetbrains/icons.ts";
 import { jetbrains } from "../src/targets/jetbrains/index.ts";
 import { read, report, root } from "./support.ts";
 
@@ -161,11 +161,12 @@ const foreground = (key: string) => {
   return value === undefined ? undefined : `#${value}`;
 };
 
-test("the target writes the license, the descriptor, the icon and a theme and scheme for each variant", () => {
+test("the target writes the license, the descriptor, the icons and a theme and scheme for each variant", () => {
   assert.deepEqual(
     [...output.keys()].sort(),
     [
       "themes/jetbrains/LICENSE",
+      "themes/jetbrains/NOTICE",
       "themes/jetbrains/META-INF/plugin.xml",
       "themes/jetbrains/META-INF/pluginIcon.svg",
       "themes/jetbrains/sotto-black.theme.json",
@@ -173,6 +174,7 @@ test("the target writes the license, the descriptor, the icon and a theme and sc
       "themes/jetbrains/sotto.theme.json",
       "themes/jetbrains/sotto.xml",
       ...folderIcons(palette.colors).map((file) => file.path),
+      ...fileIcons(palette.colors).map((file) => file.path),
     ].sort(),
   );
 });

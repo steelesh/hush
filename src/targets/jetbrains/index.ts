@@ -1,10 +1,11 @@
 import { readFileSync } from "node:fs";
 import meta from "../../../package.json" with { type: "json" };
+import { notice } from "../../icons/notice.ts";
 import type { Colors, Palette } from "../../palette.ts";
 import type { Target } from "../../target.ts";
 import { lines, xml } from "../../text.ts";
 import { variants } from "../../variant.ts";
-import { folderIcons } from "./icons.ts";
+import { fileIcons, folderIcons } from "./icons.ts";
 import { scheme } from "./scheme.ts";
 import { theme } from "./theme.ts";
 
@@ -41,7 +42,9 @@ export const jetbrains: Target = {
   name: "jetbrains",
   files: (palette) => [
     ...folderIcons(palette.colors),
+    ...fileIcons(palette.colors),
     { path: "themes/jetbrains/LICENSE", content: readFileSync(new URL("../../../LICENSE", import.meta.url), "utf8") },
+    { path: "themes/jetbrains/NOTICE", content: notice },
     { path: "themes/jetbrains/META-INF/plugin.xml", content: descriptor(palette) },
     { path: "themes/jetbrains/META-INF/pluginIcon.svg", content: icon(palette.colors) },
     ...variants(palette).flatMap((variant) => [

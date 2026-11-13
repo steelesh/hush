@@ -51,7 +51,7 @@ description = "package the jetbrains theme plugin and the editor scheme into dis
 run = [
   { task = "build" },
   "mkdir -p dist/jetbrains/sotto/lib",
-  "cd themes/jetbrains && zip -FS -X -q -r ../../dist/jetbrains/sotto/lib/sotto.jar LICENSE META-INF/plugin.xml META-INF/pluginIcon.svg sotto.theme.json sotto.xml sotto-black.theme.json sotto-black.xml icons",
+  "cd themes/jetbrains && zip -FS -X -q -r ../../dist/jetbrains/sotto/lib/sotto.jar LICENSE NOTICE META-INF/plugin.xml META-INF/pluginIcon.svg sotto.theme.json sotto.xml sotto-black.theme.json sotto-black.xml icons",
   "cd dist/jetbrains && zip -FS -X -q -r ../sotto-jetbrains.zip sotto",
   "cp themes/jetbrains/sotto.xml dist/sotto.icls",
   "cp themes/jetbrains/sotto-black.xml dist/sotto-black.icls",

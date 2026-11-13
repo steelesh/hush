@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import * as icons from "../src/icons/catalog.ts";
 import { load, type Name } from "../src/palette.ts";
 import { targets } from "../src/targets/index.ts";
 import { report } from "./support.ts";
@@ -177,50 +178,20 @@ for (const [name, [stroke, fill]] of Object.entries(folderRoles)) {
   ];
 }
 
-const vscodeFolders = ["folder", "project", "source", "test", "resources", "generated", "library", "docs", "log", "template", "github", "config"];
-for (const name of vscodeFolders) {
-  const role = folderRoles[name];
-  assert.ok(role, `missing folder role: ${name}`);
-  const [stroke, fill] = role;
-  snapshot[`themes/vscode/icons/folder-${name}.svg`] = [
-    ["outline", /stroke="(#[0-9a-f]{6})"/, stroke],
-    ["surface", /fill="(#[0-9a-f]{6})"/, fill],
-  ];
+for (const [folder, pick] of [
+  ["color", (tone: Name) => tone],
+  ["quiet", (): Name => "breath"],
+] as const) {
+  const outline: Probe = ["outline", /stroke="(#[0-9a-f]{6})"/, "breath"];
+  snapshot[`themes/vscode/icons/${folder}/folder.svg`] = [outline];
+  for (const icon of icons.files) snapshot[`themes/vscode/icons/${folder}/${icon.name}.svg`] = [["mark", /fill="(#[0-9a-f]{6})"/, pick(icon.tone)]];
+  for (const icon of icons.folders)
+    snapshot[`themes/vscode/icons/${folder}/folder-${icon.name}.svg`] = [outline, ["badge", /fill="(#[0-9a-f]{6})"/, pick(icon.tone)]];
 }
 
-const fileRoles: Record<string, Name> = {
-  file: "murmur",
-  code: "cue",
-  java: "said",
-  javascript: "said",
-  typescript: "cue",
-  python: "said",
-  rust: "call",
-  go: "rest",
-  ruby: "call",
-  lua: "aside",
-  shell: "grown",
-  markup: "call",
-  style: "aside",
-  data: "said",
-  config: "murmur",
-  docs: "murmur",
-  test: "grown",
-  git: "call",
-  lock: "said",
-  archive: "said",
-  image: "form",
-  audio: "aside",
-  video: "aside",
-  font: "aside",
-  database: "form",
-  binary: "murmur",
-  notebook: "said",
-  diff: "grown",
-  license: "murmur",
-};
-for (const [name, stroke] of Object.entries(fileRoles)) {
-  snapshot[`themes/vscode/icons/file-${name}.svg`] = [["glyph", /stroke="(#[0-9a-f]{6})"/, stroke]];
+for (const icon of icons.files) {
+  const path = `themes/jetbrains/icons/sotto/files/${icon.name}.svg`;
+  if (built.has(path)) snapshot[path] = [["mark", /fill="(#[0-9a-f]{6})"/, icon.tone]];
 }
 
 test("each target draws its key roles in the colors recorded here", () => {

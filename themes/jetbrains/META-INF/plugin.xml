@@ -1,9 +1,9 @@
 <idea-plugin>
   <id>dev.steelesh.sotto</id>
   <name>Sotto</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <vendor url="https://github.com/steelesh/sotto">steelesh</vendor>
-  <description>a quiet dark theme in muted pastels for JetBrains IDEs.</description>
+  <description>A quiet dark theme in muted pastels for JetBrains IDEs.</description>
   <idea-version since-build="261" />
   <depends>com.intellij.modules.platform</depends>
   <extensions defaultExtensionNs="com.intellij">

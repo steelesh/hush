@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { files } from "../../icons/catalog.ts";
+import { fileIcon } from "../../icons/draw.ts";
 import type { Colors, Name } from "../../palette.ts";
 import type { File } from "../../target.ts";
 
@@ -227,4 +230,26 @@ export function folderSvg(colors: Colors, folder: Folder): string {
 
 export function folderIcons(colors: Colors): File[] {
   return folderDefinitions.map((folder) => ({ path: `themes/jetbrains/icons/sotto/folders/${folder.name}.svg`, content: folderSvg(colors, folder) }));
+}
+
+type Mapped = { platform: Record<string, string>; plugins: Record<string, Record<string, string>> };
+
+const mapped = JSON.parse(readFileSync(new URL("../../../data/jetbrains-icons.json", import.meta.url), "utf8")) as Mapped;
+const drawn = new Map(files.map((icon) => [icon.name, icon]));
+const target = (name: string) => {
+  if (!drawn.has(name)) throw new Error(`jetbrains icons: the catalog has no ${name}`);
+  return `/icons/sotto/files/${name}.svg`;
+};
+const targets = (paths: Record<string, string>) => Object.fromEntries(Object.entries(paths).map(([path, name]) => [path, target(name)]));
+
+export function fileReplacements(): Record<string, string | Record<string, string>> {
+  return { ...targets(mapped.platform), ...Object.fromEntries(Object.entries(mapped.plugins).map(([plugin, paths]) => [plugin, targets(paths)])) };
+}
+
+export function fileIcons(colors: Colors): File[] {
+  const used = new Set([mapped.platform, ...Object.values(mapped.plugins)].flatMap(Object.values));
+  return [...used].sort().flatMap((name) => {
+    const icon = drawn.get(name);
+    return icon ? [{ path: `themes/jetbrains/icons/sotto/files/${name}.svg`, content: fileIcon(icon, colors[icon.tone]) }] : [];
+  });
 }

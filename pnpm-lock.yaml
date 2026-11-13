@@ -8,17 +8,30 @@ importers:
 
   .:
     devDependencies:
+      '@phosphor-icons/core':
+        specifier: ^2.1.1
+        version: 2.1.1
       '@types/node':
         specifier: ^24.0.0
         version: 24.19.2
+      simple-icons:
+        specifier: ^16.37.0
+        version: 16.37.0
       typescript:
         specifier: ^5.9.0
         version: 5.9.3
 
 packages:
 
+  '@phosphor-icons/core@2.1.1':
+    resolution: {integrity: sha512-v4ARvrip4qBCImOE5rmPUylOEK4iiED9ZyKjcvzuezqMaiRASCHKcRIuvvxL/twvLpkfnEODCOJp5dM4eZilxQ==}
+
   '@types/node@24.19.2':
     resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
+
+  simple-icons@16.37.0:
+    resolution: {integrity: sha512-8mCJIhpMYOL9g13GW59EiL3sVXJnTEKGCTZFaekl9UQ3Qo0SwVjnLaJ82QiaH8BKBdouEDzrHMXIWh8cBIy48A==}
+    engines: {node: '>=0.12.18'}
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
@@ -30,9 +43,13 @@ packages:
 
 snapshots:
 
+  '@phosphor-icons/core@2.1.1': {}
+
   '@types/node@24.19.2':
     dependencies:
       undici-types: 7.24.6
+
+  simple-icons@16.37.0: {}
 
   typescript@5.9.3: {}
 

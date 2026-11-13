@@ -1400,6 +1400,244 @@
     "/expui/actions/addExcludedRoot.svg": "/icons/sotto/folders/add-excluded.svg",
     "/expui/nodes/module8x8.svg": "/icons/sotto/folders/module-layer.svg",
     "/modules/sourceRootFileLayer.svg": "/icons/sotto/folders/source-layer.svg",
-    "/expui/nodes/sourceRootFileLayer.svg": "/icons/sotto/folders/source-layer.svg"
+    "/expui/nodes/sourceRootFileLayer.svg": "/icons/sotto/folders/source-layer.svg",
+    "/expui/fileTypes/Csharp.svg": "/icons/sotto/files/csharp.svg",
+    "/expui/fileTypes/anyType.svg": "/icons/sotto/files/file.svg",
+    "/expui/fileTypes/archive.svg": "/icons/sotto/files/archive.svg",
+    "/expui/fileTypes/bazel.svg": "/icons/sotto/files/bazel.svg",
+    "/expui/fileTypes/binaryData.svg": "/icons/sotto/files/binary.svg",
+    "/expui/fileTypes/c.svg": "/icons/sotto/files/c.svg",
+    "/expui/fileTypes/config.svg": "/icons/sotto/files/config.svg",
+    "/expui/fileTypes/cpp.svg": "/icons/sotto/files/cpp.svg",
+    "/expui/fileTypes/css.svg": "/icons/sotto/files/css.svg",
+    "/expui/fileTypes/csv.svg": "/icons/sotto/files/table.svg",
+    "/expui/fileTypes/diagram.svg": "/icons/sotto/files/diagram.svg",
+    "/expui/fileTypes/docker.svg": "/icons/sotto/files/docker.svg",
+    "/expui/fileTypes/eclipse.svg": "/icons/sotto/files/eclipse.svg",
+    "/expui/fileTypes/editorConfig.svg": "/icons/sotto/files/editorconfig.svg",
+    "/expui/fileTypes/font.svg": "/icons/sotto/files/font.svg",
+    "/expui/fileTypes/gitignore.svg": "/icons/sotto/files/git.svg",
+    "/expui/fileTypes/gradle.svg": "/icons/sotto/files/gradle.svg",
+    "/expui/fileTypes/graphql.svg": "/icons/sotto/files/graphql.svg",
+    "/expui/fileTypes/groovy.svg": "/icons/sotto/files/groovy.svg",
+    "/expui/fileTypes/h.svg": "/icons/sotto/files/c.svg",
+    "/expui/fileTypes/hprof.svg": "/icons/sotto/files/binary.svg",
+    "/expui/fileTypes/html.svg": "/icons/sotto/files/html.svg",
+    "/expui/fileTypes/http.svg": "/icons/sotto/files/http.svg",
+    "/expui/fileTypes/i18n.svg": "/icons/sotto/files/translation.svg",
+    "/expui/fileTypes/ideaModule.svg": "/icons/sotto/files/jetbrains.svg",
+    "/expui/fileTypes/ignored.svg": "/icons/sotto/files/ignore.svg",
+    "/expui/fileTypes/image.svg": "/icons/sotto/files/image.svg",
+    "/expui/fileTypes/java.svg": "/icons/sotto/files/java.svg",
+    "/expui/fileTypes/javaClass.svg": "/icons/sotto/files/binary.svg",
+    "/expui/fileTypes/javaScript.svg": "/icons/sotto/files/javascript.svg",
+    "/expui/fileTypes/jenkins.svg": "/icons/sotto/files/jenkins.svg",
+    "/expui/fileTypes/json.svg": "/icons/sotto/files/json.svg",
+    "/expui/fileTypes/jsonSchema.svg": "/icons/sotto/files/schema.svg",
+    "/expui/fileTypes/jupyter.svg": "/icons/sotto/files/jupyter.svg",
+    "/expui/fileTypes/markdown.svg": "/icons/sotto/files/markdown.svg",
+    "/expui/fileTypes/patch.svg": "/icons/sotto/files/diff.svg",
+    "/expui/fileTypes/perl.svg": "/icons/sotto/files/perl.svg",
+    "/expui/fileTypes/properties.svg": "/icons/sotto/files/config.svg",
+    "/expui/fileTypes/rst.svg": "/icons/sotto/files/restructuredtext.svg",
+    "/expui/fileTypes/shell.svg": "/icons/sotto/files/shell.svg",
+    "/expui/fileTypes/sourceMap.svg": "/icons/sotto/files/source-map.svg",
+    "/expui/fileTypes/sql.svg": "/icons/sotto/files/sql.svg",
+    "/expui/fileTypes/swiftLang.svg": "/icons/sotto/files/swift.svg",
+    "/expui/fileTypes/terraform.svg": "/icons/sotto/files/terraform.svg",
+    "/expui/fileTypes/text.svg": "/icons/sotto/files/text.svg",
+    "/expui/fileTypes/toml.svg": "/icons/sotto/files/toml.svg",
+    "/expui/fileTypes/typeScript.svg": "/icons/sotto/files/typescript.svg",
+    "/expui/fileTypes/unknown.svg": "/icons/sotto/files/file.svg",
+    "/expui/fileTypes/vue.svg": "/icons/sotto/files/vue.svg",
+    "/expui/fileTypes/wsdl.svg": "/icons/sotto/files/xml.svg",
+    "/expui/fileTypes/xhtml.svg": "/icons/sotto/files/html.svg",
+    "/expui/fileTypes/xml.svg": "/icons/sotto/files/xml.svg",
+    "/expui/fileTypes/xsd.svg": "/icons/sotto/files/xml.svg",
+    "/expui/fileTypes/yaml.svg": "/icons/sotto/files/yaml.svg",
+    "/expui/language/php.svg": "/icons/sotto/files/php.svg",
+    "/expui/language/scala.svg": "/icons/sotto/files/scala.svg",
+    "/expui/webReferences/openApi.svg": "/icons/sotto/files/openapi.svg",
+    "/fileTypes/Csharp.svg": "/icons/sotto/files/csharp.svg",
+    "/fileTypes/any_type.svg": "/icons/sotto/files/file.svg",
+    "/fileTypes/archive.svg": "/icons/sotto/files/archive.svg",
+    "/fileTypes/binaryData.svg": "/icons/sotto/files/binary.svg",
+    "/fileTypes/config.svg": "/icons/sotto/files/config.svg",
+    "/fileTypes/css.svg": "/icons/sotto/files/css.svg",
+    "/fileTypes/custom.svg": "/icons/sotto/files/file.svg",
+    "/fileTypes/diagram.svg": "/icons/sotto/files/diagram.svg",
+    "/fileTypes/dtd.svg": "/icons/sotto/files/xml.svg",
+    "/fileTypes/hprof.svg": "/icons/sotto/files/binary.svg",
+    "/fileTypes/htaccess.svg": "/icons/sotto/files/apache.svg",
+    "/fileTypes/html.svg": "/icons/sotto/files/html.svg",
+    "/fileTypes/http.svg": "/icons/sotto/files/http.svg",
+    "/fileTypes/i18n.svg": "/icons/sotto/files/translation.svg",
+    "/fileTypes/image.svg": "/icons/sotto/files/image.svg",
+    "/fileTypes/java.svg": "/icons/sotto/files/java.svg",
+    "/fileTypes/javaClass.svg": "/icons/sotto/files/binary.svg",
+    "/fileTypes/javaOutsideSource.svg": "/icons/sotto/files/java.svg",
+    "/fileTypes/javaScript.svg": "/icons/sotto/files/javascript.svg",
+    "/fileTypes/json.svg": "/icons/sotto/files/json.svg",
+    "/fileTypes/jsonSchema.svg": "/icons/sotto/files/schema.svg",
+    "/fileTypes/jupyter.svg": "/icons/sotto/files/jupyter.svg",
+    "/fileTypes/properties.svg": "/icons/sotto/files/config.svg",
+    "/fileTypes/text.svg": "/icons/sotto/files/text.svg",
+    "/fileTypes/unknown.svg": "/icons/sotto/files/file.svg",
+    "/fileTypes/wsdlFile.svg": "/icons/sotto/files/xml.svg",
+    "/fileTypes/xhtml.svg": "/icons/sotto/files/html.svg",
+    "/fileTypes/xml.svg": "/icons/sotto/files/xml.svg",
+    "/fileTypes/xsdFile.svg": "/icons/sotto/files/xml.svg",
+    "/fileTypes/yaml.svg": "/icons/sotto/files/yaml.svg",
+    "/language/go.svg": "/icons/sotto/files/go.svg",
+    "/language/kotlin.svg": "/icons/sotto/files/kotlin.svg",
+    "/language/php.svg": "/icons/sotto/files/php.svg",
+    "/language/python.svg": "/icons/sotto/files/python.svg",
+    "/language/ruby.svg": "/icons/sotto/files/ruby.svg",
+    "/language/rust.svg": "/icons/sotto/files/rust.svg",
+    "/language/scala.svg": "/icons/sotto/files/scala.svg",
+    "/nodes/console.svg": "/icons/sotto/files/shell.svg",
+    "/nodes/editorconfig.svg": "/icons/sotto/files/editorconfig.svg",
+    "/nodes/ideaModule.svg": "/icons/sotto/files/jetbrains.svg",
+    "/nodes/ppJar.svg": "/icons/sotto/files/jar.svg",
+    "/providers/eclipse.svg": "/icons/sotto/files/eclipse.svg",
+    "/providers/liquibase.svg": "/icons/sotto/files/liquibase.svg",
+    "/vcs/ignore_file.svg": "/icons/sotto/files/ignore.svg",
+    "/vcs/patch_file.svg": "/icons/sotto/files/diff.svg",
+    "/vcs/vendors/github.svg": "/icons/sotto/files/github.svg",
+    "/webreferences/openapi.svg": "/icons/sotto/files/openapi.svg",
+    "AngularJS": {
+      "/icons/angular2.svg": "/icons/sotto/files/angular.svg"
+    },
+    "Docker": {
+      "/icons/DockerComposeFile.svg": "/icons/sotto/files/docker.svg",
+      "/icons/DockerFile_1.svg": "/icons/sotto/files/docker.svg",
+      "/icons/expui/docker.svg": "/icons/sotto/files/docker.svg",
+      "/icons/expui/dockerCompose.svg": "/icons/sotto/files/docker.svg"
+    },
+    "JavaScript": {
+      "/icons/expui/fileTypes/eslint.svg": "/icons/sotto/files/eslint.svg",
+      "/icons/expui/fileTypes/jsTest.svg": "/icons/sotto/files/test.svg",
+      "/icons/expui/fileTypes/jsx.svg": "/icons/sotto/files/react.svg",
+      "/icons/expui/fileTypes/jsxTest.svg": "/icons/sotto/files/test.svg",
+      "/icons/expui/fileTypes/prettier.svg": "/icons/sotto/files/prettier.svg",
+      "/icons/expui/fileTypes/stylelint.svg": "/icons/sotto/files/stylelint.svg",
+      "/icons/expui/fileTypes/tsTest.svg": "/icons/sotto/files/test.svg",
+      "/icons/expui/fileTypes/tsx.svg": "/icons/sotto/files/react.svg",
+      "/icons/expui/fileTypes/tsxTest.svg": "/icons/sotto/files/test.svg",
+      "/icons/expui/fileTypes/typeScript.svg": "/icons/sotto/files/typescript.svg",
+      "/icons/expui/nodejs/yarn.svg": "/icons/sotto/files/yarn.svg",
+      "/icons/fileTypes/TSX.svg": "/icons/sotto/files/react.svg",
+      "/icons/fileTypes/TsxTest.svg": "/icons/sotto/files/test.svg",
+      "/icons/fileTypes/TypeScriptFile.svg": "/icons/sotto/files/typescript.svg",
+      "/icons/fileTypes/TypeScriptTest.svg": "/icons/sotto/files/test.svg",
+      "/icons/fileTypes/eslint.svg": "/icons/sotto/files/eslint.svg",
+      "/icons/fileTypes/jestSnapshot.svg": "/icons/sotto/files/snapshot.svg",
+      "/icons/fileTypes/jsTestFile.svg": "/icons/sotto/files/test.svg",
+      "/icons/fileTypes/jsx.svg": "/icons/sotto/files/react.svg",
+      "/icons/fileTypes/jsx_test_file.svg": "/icons/sotto/files/test.svg",
+      "/icons/fileTypes/stylelint.svg": "/icons/sotto/files/stylelint.svg",
+      "/icons/jest/jest.svg": "/icons/sotto/files/jest.svg",
+      "/icons/nodejs/yarn.svg": "/icons/sotto/files/yarn.svg",
+      "/icons/protractor/protractor.svg": "/icons/sotto/files/protractor.svg"
+    },
+    "PythonCore": {
+      "/icons/com/jetbrains/python/parser/expui/python.svg": "/icons/sotto/files/python.svg",
+      "/icons/com/jetbrains/python/parser/pythonFile.svg": "/icons/sotto/files/python.svg",
+      "/icons/com/jetbrains/pythonCore/cython/cythonFile.svg": "/icons/sotto/files/python.svg"
+    },
+    "Pythonid": {
+      "/icons/jinja2.svg": "/icons/sotto/files/jinja.svg"
+    },
+    "com.github.biomejs.intellijbiome": {
+      "/icons/pluginIcon.svg": "/icons/sotto/files/biome.svg"
+    },
+    "com.github.l34130.mise": {
+      "/icons/default.svg": "/icons/sotto/files/tool-versions.svg"
+    },
+    "com.intellij.database": {
+      "/icons/expui/fileTypes/cassandraFileType.svg": "/icons/sotto/files/cassandra.svg",
+      "/icons/expui/fileTypes/redisFileType.svg": "/icons/sotto/files/redis.svg",
+      "/icons/expui/sql.svg": "/icons/sotto/files/sql.svg",
+      "/icons/expui/sqlScript.svg": "/icons/sotto/files/sql.svg",
+      "/icons/fileTypes/cassandraFileType.svg": "/icons/sotto/files/cassandra.svg",
+      "/icons/fileTypes/redisFileType.svg": "/icons/sotto/files/redis.svg",
+      "/icons/sql.svg": "/icons/sotto/files/sql.svg"
+    },
+    "com.intellij.flyway": {
+      "/icons/flyway.svg": "/icons/sotto/files/flyway.svg"
+    },
+    "com.intellij.gradle": {
+      "/icons/expui/gradle.svg": "/icons/sotto/files/gradle.svg",
+      "/icons/gradleFile.svg": "/icons/sotto/files/gradle.svg"
+    },
+    "com.intellij.java": {
+      "/icons/expui/maven.svg": "/icons/sotto/files/maven.svg",
+      "/icons/repositoryLibraryLogo.svg": "/icons/sotto/files/maven.svg"
+    },
+    "com.intellij.kubernetes": {
+      "/icons/helm.svg": "/icons/sotto/files/helm.svg",
+      "/icons/helmChart.svg": "/icons/sotto/files/helm.svg",
+      "/icons/helmChartLock.svg": "/icons/sotto/files/helm.svg",
+      "/icons/helmValues.svg": "/icons/sotto/files/helm.svg",
+      "/icons/helmValuesSchemaJson.svg": "/icons/sotto/files/helm.svg",
+      "/icons/kubernetes_Y.svg": "/icons/sotto/files/kubernetes.svg",
+      "/icons/kustomize.svg": "/icons/sotto/files/kustomize.svg",
+      "/icons/newui/helm.svg": "/icons/sotto/files/helm.svg",
+      "/icons/newui/helmChart.svg": "/icons/sotto/files/helm.svg",
+      "/icons/newui/helmChartLock.svg": "/icons/sotto/files/helm.svg",
+      "/icons/newui/helmValues.svg": "/icons/sotto/files/helm.svg",
+      "/icons/newui/helmValuesSchemaJson.svg": "/icons/sotto/files/helm.svg",
+      "/icons/newui/kubernetesY.svg": "/icons/sotto/files/kubernetes.svg",
+      "/icons/newui/kustomize.svg": "/icons/sotto/files/kustomize.svg"
+    },
+    "com.intellij.mermaid": {
+      "/icons/MermaidFileType.svg": "/icons/sotto/files/mermaid.svg"
+    },
+    "com.intellij.swagger": {
+      "/icons/swagger.svg": "/icons/sotto/files/swagger.svg"
+    },
+    "com.jetbrains.restClient": {
+      "/com/intellij/ws/rest/client/icons/expui/httpRequestsFiletype.svg": "/icons/sotto/files/http.svg",
+      "/com/intellij/ws/rest/client/icons/http_requests_filetype.svg": "/icons/sotto/files/http.svg"
+    },
+    "org.intellij.groovy": {
+      "/icons/groovy/groovyFile.svg": "/icons/sotto/files/groovy.svg",
+      "/icons/groovy/groovy_16x16.svg": "/icons/sotto/files/groovy.svg",
+      "/icons/groovy/groovy_outsideSources.svg": "/icons/sotto/files/groovy.svg",
+      "/icons/groovy/newui/groovy.svg": "/icons/sotto/files/groovy.svg"
+    },
+    "org.intellij.plugins.postcss": {
+      "/icons/postcss.svg": "/icons/sotto/files/postcss.svg"
+    },
+    "org.intellij.qodana": {
+      "/icons/newui/sarif.svg": "/icons/sotto/files/json.svg",
+      "/icons/sarif.svg": "/icons/sotto/files/json.svg"
+    },
+    "org.jetbrains.kotlin": {
+      "/org/jetbrains/kotlin/idea/icons/expui/kotlin.svg": "/icons/sotto/files/kotlin.svg",
+      "/org/jetbrains/kotlin/idea/icons/expui/kotlinGradleScript.svg": "/icons/sotto/files/gradle.svg",
+      "/org/jetbrains/kotlin/idea/icons/expui/kotlinScript.svg": "/icons/sotto/files/kotlin.svg",
+      "/org/jetbrains/kotlin/idea/icons/kotlin_file.svg": "/icons/sotto/files/kotlin.svg",
+      "/org/jetbrains/kotlin/idea/icons/kotlin_gradle_script.svg": "/icons/sotto/files/gradle.svg",
+      "/org/jetbrains/kotlin/idea/icons/kotlin_script.svg": "/icons/sotto/files/kotlin.svg"
+    },
+    "org.jetbrains.plugins.gitlab": {
+      "/org/jetbrains/plugins/gitlab/gitLabLogo.svg": "/icons/sotto/files/gitlab.svg"
+    },
+    "org.jetbrains.plugins.go-template": {
+      "/icons/expui/goTemplate.svg": "/icons/sotto/files/go.svg",
+      "/icons/go_template.svg": "/icons/sotto/files/go.svg"
+    },
+    "org.jetbrains.plugins.less": {
+      "/icons/expui/less.svg": "/icons/sotto/files/less.svg",
+      "/icons/less.svg": "/icons/sotto/files/less.svg"
+    },
+    "org.jetbrains.plugins.sass": {
+      "/org/jetbrains/plugins/sass/expui/sass.svg": "/icons/sotto/files/sass.svg",
+      "/org/jetbrains/plugins/sass/sass.svg": "/icons/sotto/files/sass.svg"
+    },
+    "org.jetbrains.plugins.vue": {
+      "/icons/vue.svg": "/icons/sotto/files/vue.svg"
+    }
   }
 }

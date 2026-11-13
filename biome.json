@@ -3,5 +3,5 @@
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": { "includes": ["**", "!themes", "!samples"] },
   "formatter": { "indentStyle": "space", "lineWidth": 160 },
-  "overrides": [{ "includes": ["palette.json"], "formatter": { "enabled": false } }]
+  "overrides": [{ "includes": ["palette.json", "data/icons.json", "data/marks.json", "data/jetbrains-icons.json"], "formatter": { "enabled": false } }]
 }

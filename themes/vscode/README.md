@@ -1,9 +1,9 @@
-![sotto](https://github.com/steelesh/sotto/raw/main/assets/hero.png)
+![Sotto](https://github.com/steelesh/sotto/raw/main/assets/hero.png)
 
-# sotto
+# Sotto
 
-a quiet dark theme in muted pastels.
+A quiet dark theme in muted pastels.
 
-color themes: Sotto and Sotto Black. file icon theme: Sotto.
+Color themes: Sotto and Sotto Black. File icon themes: Sotto and Sotto Quiet.
 
-![sotto icons](https://github.com/steelesh/sotto/raw/main/assets/icons.png)
+![Sotto icons](https://github.com/steelesh/sotto/raw/main/assets/icons.png)

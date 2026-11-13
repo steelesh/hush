@@ -3,7 +3,7 @@ import { faint, half, hint, wash } from "../../opacity.ts";
 import { type Colors, names } from "../../palette.ts";
 import { json } from "../../text.ts";
 import type { Variant } from "../../variant.ts";
-import { folderReplacements } from "./icons.ts";
+import { fileReplacements, folderReplacements } from "./icons.ts";
 import { each, merge, numbered, type Sheet, under } from "./sheet.ts";
 
 const parentTheme = "Islands Dark";
@@ -1237,6 +1237,6 @@ export function theme({ name, file, palette: { colors } }: Variant): string {
     editorScheme: `/${file}.xml`,
     colors: Object.fromEntries(names.map((name) => [name, colors[name]])),
     ui: { "*": Object.fromEntries(shared.map(([key, value]) => [key.slice(2), value])), ...Object.fromEntries(specific) },
-    icons: { ColorPalette: icons(colors), ...folderReplacements() },
+    icons: { ColorPalette: icons(colors), ...folderReplacements(), ...fileReplacements() },
   });
 }

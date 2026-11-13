@@ -61,9 +61,12 @@ test("the extension manifest contributes color themes and file icons without exe
         { label: "Sotto", uiTheme: "vs-dark", path: "./themes/sotto-color-theme.json" },
         { label: "Sotto Black", uiTheme: "vs-dark", path: "./themes/sotto-black-color-theme.json" },
       ],
-      iconThemes: [{ id: "sotto", label: "Sotto", path: "./icons/sotto-icon-theme.json" }],
+      iconThemes: [
+        { id: "sotto", label: "Sotto", path: "./icons/sotto-icon-theme.json" },
+        { id: "sotto-quiet", label: "Sotto Quiet", path: "./icons/sotto-quiet-icon-theme.json" },
+      ],
     },
-    files: ["LICENSE", "icon.png", "themes", "icons"],
+    files: ["LICENSE", "NOTICE", "icon.png", "themes", "icons"],
   });
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
   assert.match(manifest.engines.vscode, /^\^1\.\d+\.0$/);

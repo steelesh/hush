@@ -1,13 +1,14 @@
 import { readFileSync } from "node:fs";
 import meta from "../../package.json" with { type: "json" };
 import { alpha, cover } from "../color.ts";
+import { notice } from "../icons/notice.ts";
 import { faint, half, wash } from "../opacity.ts";
 import { type Palette, slots } from "../palette.ts";
 import { rules, type Style, semantics } from "../syntax.ts";
 import type { Target } from "../target.ts";
 import { json } from "../text.ts";
 import { type Variant, variants } from "../variant.ts";
-import { vscodeIcons } from "./vscode-icons.ts";
+import { iconThemes, vscodeIcons } from "./vscode-icons.ts";
 
 type Paint = [color: string, ...ids: string[]];
 
@@ -457,9 +458,9 @@ const manifest = (palette: Palette) =>
     galleryBanner: { color: palette.colors.pitch, theme: "dark" },
     contributes: {
       themes: variants(palette).map(({ name, file }) => ({ label: name, uiTheme: "vs-dark", path: `./themes/${file}-color-theme.json` })),
-      iconThemes: [{ id: "sotto", label: "Sotto", path: "./icons/sotto-icon-theme.json" }],
+      iconThemes: iconThemes.map(({ id, label }) => ({ id, label, path: `./icons/${id}-icon-theme.json` })),
     },
-    files: ["LICENSE", "icon.png", "themes", "icons"],
+    files: ["LICENSE", "NOTICE", "icon.png", "themes", "icons"],
   });
 
 export const vscode: Target = {
@@ -469,9 +470,10 @@ export const vscode: Target = {
     ...vscodeIcons(palette.colors),
     ...variants(palette).map((variant) => ({ path: `themes/vscode/themes/${variant.file}-color-theme.json`, content: theme(variant) })),
     { path: "themes/vscode/LICENSE", content: readFileSync(new URL("../../LICENSE", import.meta.url), "utf8") },
+    { path: "themes/vscode/NOTICE", content: notice },
     {
       path: "themes/vscode/README.md",
-      content: `![sotto](${asset("hero")})\n\n# sotto\n\n${meta.description}\n\ncolor themes: Sotto and Sotto Black. file icon theme: Sotto.\n\n![sotto icons](${asset("icons")})\n`,
+      content: `![Sotto](${asset("hero")})\n\n# Sotto\n\n${meta.description}\n\nColor themes: Sotto and Sotto Black. File icon themes: Sotto and Sotto Quiet.\n\n![Sotto icons](${asset("icons")})\n`,
     },
   ],
 };

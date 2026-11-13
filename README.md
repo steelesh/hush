@@ -1,9 +1,9 @@
-![sotto](assets/hero.png)
+![Sotto](assets/hero.png)
 
-# sotto
+# Sotto
 
-a quiet dark theme in muted pastels.
+A quiet dark theme in muted pastels.
 
-> made for my own setup. it may not cover your tools or plugins.
+> Made for my own setup. It may not cover your tools or plugins.
 
-![sotto icons](assets/icons.png)
+![Sotto icons](assets/icons.png)

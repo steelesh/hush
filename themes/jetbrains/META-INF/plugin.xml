@@ -1,0 +1,12 @@
+<idea-plugin>
+  <id>dev.steelesh.hush</id>
+  <name>hush</name>
+  <version>0.1.0</version>
+  <vendor url="https://github.com/steelesh/hush">steelesh</vendor>
+  <description>a calm and quiet dark theme for code editors and terminal tools. the interface, the editor scheme and the console colors come from one palette.</description>
+  <idea-version since-build="261" />
+  <depends>com.intellij.modules.platform</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="dev.steelesh.hush" path="/hush.theme.json" />
+  </extensions>
+</idea-plugin>

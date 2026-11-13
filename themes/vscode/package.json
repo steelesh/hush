@@ -1,0 +1,41 @@
+{
+  "name": "hush",
+  "displayName": "hush",
+  "description": "a calm and quiet dark theme for code editors and terminal tools.",
+  "version": "0.1.0",
+  "publisher": "steelesh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steelesh/hush"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "dark",
+    "quiet"
+  ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "hush",
+        "uiTheme": "vs-dark",
+        "path": "./themes/hush-color-theme.json"
+      }
+    ]
+  },
+  "files": [
+    "LICENSE",
+    "icon.png",
+    "themes"
+  ]
+}

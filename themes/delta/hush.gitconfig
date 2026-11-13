@@ -1,0 +1,27 @@
+[delta]
+	dark = true
+	syntax-theme = hush
+	minus-style = syntax "#371b1e"
+	minus-emph-style = syntax "#4a2428"
+	plus-style = syntax "#0e3133"
+	plus-emph-style = syntax "#123f42"
+	line-numbers-left-style = "#5f5b67"
+	line-numbers-right-style = "#5f5b67"
+	line-numbers-zero-style = "#817e8d"
+	line-numbers-minus-style = "#d47a80"
+	line-numbers-plus-style = "#96bba6"
+	file-style = "#dda9a9" bold
+	file-decoration-style = "#5f5b67" ul
+	hunk-header-style = line-number "#9d9bad"
+	hunk-header-file-style = "#9d9bad"
+	hunk-header-line-number-style = "#9d9bad"
+	hunk-header-decoration-style = "#5f5b67" box
+	merge-conflict-ours-diff-header-decoration-style = "#5f5b67" box
+	merge-conflict-theirs-diff-header-decoration-style = "#5f5b67" box
+	whitespace-error-style = "#d47a80" reverse
+	inline-hint-style = "#817e8d"
+	grep-file-style = "#dda9a9"
+	grep-line-number-style = "#817e8d"
+	grep-match-word-style = "#dcdae7" "#492e1b"
+	blame-palette = "#000000 #181818 #1f1f1f"
+	map-styles = bold purple => syntax "#1f1e38", bold blue => syntax "#1f1e38", bold cyan => syntax "#1f1e38", bold yellow => syntax "#1f1e38"

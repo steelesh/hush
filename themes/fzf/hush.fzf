@@ -1,0 +1,17 @@
+--color=bg+:#2a2a2a
+--color=border:#5f5b67
+--color=fg:#dcdae7
+--color=fg+:#dcdae7:bold
+--color=footer:#9d9bad
+--color=ghost:#817e8d
+--color=header:#9d9bad
+--color=hl:#dda9a9:bold
+--color=hl+:#dda9a9:bold
+--color=info:#8f8c9e
+--color=label:#dda9a9:bold
+--color=marker:#dda9a9
+--color=nomatch:#817e8d
+--color=pointer:#dda9a9
+--color=prompt:#dda9a9
+--color=query:#dcdae7:regular
+--color=spinner:#817e8d

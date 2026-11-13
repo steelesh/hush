@@ -1,0 +1,4 @@
+* text=auto eol=lf
+themes/** linguist-generated
+lua/hush/palette.lua linguist-generated
+samples/** linguist-documentation

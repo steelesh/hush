@@ -40,10 +40,10 @@ run = "sh scripts/validate.sh"
 
 [tasks.vscode]
 description = "package the vs code extension into dist/"
-depends = ["build"]
+depends = ["install", "build"]
 run = [
   "rm -rf dist/vscode && mkdir -p dist && cp -R themes/vscode dist/vscode && cp assets/icon.png dist/vscode/",
-  "cd dist/vscode && pnpm dlx @vscode/vsce@4.1.1 package --no-dependencies --out ..",
+  "cd dist/vscode && vsce package --no-dependencies --out ..",
 ]
 
 [tasks.jetbrains]

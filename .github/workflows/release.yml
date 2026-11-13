@@ -1,0 +1,148 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  check:
+    uses: $/.github/workflows/ci.yml
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: the tag names the version in package.json
+        run: test "$GITHUB_REF_NAME" = "v$(jq -r .version package.json)"
+      - name: install pinned tools
+        uses: jdx/mise-action@d5574b52816a478f9d4e6529a3f6ff17a8a36785 # v5.2.8
+        with:
+          cache: false
+      - name: package the vs code extension
+        run: mise run vscode
+      - name: package the jetbrains plugin
+        run: mise run jetbrains
+      - name: keep the packages for the publish jobs
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: packages
+          path: |
+            dist/sotto-*.vsix
+            dist/sotto-jetbrains.zip
+            dist/sotto.icls
+            dist/sotto-black.icls
+          if-no-files-found: error
+          retention-days: 7
+
+  vscode:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install pinned tools
+        uses: jdx/mise-action@d5574b52816a478f9d4e6529a3f6ff17a8a36785 # v5.2.8
+        with:
+          cache: false
+      - name: install the locked publishing tools
+        run: mise run install
+      - name: fetch the packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: packages
+          path: dist
+      - name: publish to the vs code marketplace with trusted publishing
+        run: mise exec -- vsce publish --oidc --skip-duplicate --packagePath dist/sotto-*.vsix
+
+  openvsx:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    steps:
+      - name: check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: install pinned tools
+        uses: jdx/mise-action@d5574b52816a478f9d4e6529a3f6ff17a8a36785 # v5.2.8
+        with:
+          cache: false
+      - name: install the locked publishing tools
+        run: mise run install
+      - name: fetch the packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: packages
+          path: dist
+      - name: publish to open vsx, skipped until the release environment holds OVSX_PAT
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: |
+          if [ -z "$OVSX_PAT" ]; then
+            echo "::notice title=open vsx skipped::the release environment has no OVSX_PAT secret"
+            exit 0
+          fi
+          mise exec -- ovsx publish --skip-duplicate --packagePath dist/sotto-*.vsix
+
+  jetbrains:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    steps:
+      - name: fetch the packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: packages
+          path: dist
+      - name: publish to the jetbrains marketplace, skipped until the release environment holds JETBRAINS_TOKEN
+        env:
+          JETBRAINS_TOKEN: ${{ secrets.JETBRAINS_TOKEN }}
+        run: |
+          if [ -z "$JETBRAINS_TOKEN" ]; then
+            echo "::notice title=jetbrains skipped::the release environment has no JETBRAINS_TOKEN secret"
+            exit 0
+          fi
+          curl --fail-with-body --silent --show-error \
+            --header "Authorization: Bearer $JETBRAINS_TOKEN" \
+            --form xmlId=dev.steelesh.sotto \
+            --form file=@dist/sotto-jetbrains.zip \
+            https://plugins.jetbrains.com/api/updates/upload
+
+  github:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: fetch the packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: packages
+          path: dist
+      - name: publish the github release with the packages attached
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes

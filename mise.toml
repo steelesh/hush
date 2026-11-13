@@ -15,6 +15,7 @@ run = "pnpm install --frozen-lockfile"
 
 [tasks.build]
 description = "write every generated file from palette.json"
+depends = ["install"]
 run = "node src/build.ts"
 
 [tasks.check]
@@ -40,7 +41,7 @@ run = "sh scripts/validate.sh"
 
 [tasks.vscode]
 description = "package the vs code extension into dist/"
-depends = ["install", "build"]
+depends = ["build"]
 run = [
   "rm -rf dist/vscode && mkdir -p dist && cp -R themes/vscode dist/vscode && cp assets/icon.png dist/vscode/",
   "cd dist/vscode && vsce package --no-dependencies --out ..",

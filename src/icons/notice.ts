@@ -8,10 +8,14 @@ export const notice = [
   "",
   "Phosphor Icons, https://phosphoricons.com, released under the following license.",
   "",
-  readFileSync(new URL("../../node_modules/@phosphor-icons/core/LICENSE", import.meta.url), "utf8").trim(),
+  readFileSync(new URL("../../node_modules/@phosphor-icons/core/LICENSE", import.meta.url), "utf8")
+    .replaceAll("\r\n", "\n")
+    .trim(),
   "",
   "Devicon, https://devicon.dev, released under the following license.",
   "",
-  readFileSync(new URL("../../data/marks.license", import.meta.url), "utf8").trim(),
+  readFileSync(new URL("../../data/marks.license", import.meta.url), "utf8")
+    .replaceAll("\r\n", "\n")
+    .trim(),
   "",
 ].join("\n");

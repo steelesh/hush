@@ -1,9 +1,10 @@
 {
   "name": "sotto",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "A quiet dark theme in muted pastels.",
   "license": "MIT",
+  "homepage": "https://sottotheme.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/steelesh/sotto"

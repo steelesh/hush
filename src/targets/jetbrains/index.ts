@@ -18,7 +18,7 @@ const descriptor = (palette: Palette) =>
     `  <id>${id}</id>`,
     "  <name>Sotto</name>",
     `  <version>${xml(meta.version)}</version>`,
-    `  <vendor url="${xml(meta.repository.url)}">steelesh</vendor>`,
+    `  <vendor url="${xml(meta.homepage)}">steelesh</vendor>`,
     `  <description>${xml(`<p>${meta.description.replace(/\.$/, "")} for JetBrains IDEs.</p><p>For file and folder icons in the same palette, add the companion <b>Sotto Icons</b> plugin.</p>`)}</description>`,
     `  <idea-version since-build="${sinceBuild}" />`,
     "  <depends>com.intellij.modules.platform</depends>",

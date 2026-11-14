@@ -2,14 +2,14 @@
   "name": "sotto",
   "displayName": "Sotto",
   "description": "A quiet dark theme in muted pastels.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "publisher": "steelesh",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/steelesh/sotto"
   },
-  "homepage": "https://github.com/steelesh/sotto#readme",
+  "homepage": "https://sottotheme.com",
   "bugs": {
     "url": "https://github.com/steelesh/sotto/issues"
   },

@@ -3,7 +3,7 @@
   <name>Sotto</name>
   <version>0.3.1</version>
   <vendor url="https://github.com/steelesh/sotto">steelesh</vendor>
-  <description>A quiet dark theme in muted pastels for JetBrains IDEs.</description>
+  <description>&lt;p&gt;A quiet dark theme in muted pastels for JetBrains IDEs.&lt;/p&gt;&lt;p&gt;For file and folder icons in the same palette, add the companion &lt;b&gt;Sotto Icons&lt;/b&gt; plugin.&lt;/p&gt;</description>
   <idea-version since-build="261" />
   <depends>com.intellij.modules.platform</depends>
   <extensions defaultExtensionNs="com.intellij">

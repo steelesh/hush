@@ -10,7 +10,7 @@
       <li>Two styles, Color and Quiet, switched without a restart.</li>
       <li>Class, package, source root, module and excluded folder icons stay the IDE's own.</li>
     </ul>
-    <p>Choose the style under <b>Settings | Appearance &amp; Behavior | Sotto Icons</b>. Made for dark themes, and drawn to sit beside the Sotto theme's folders.</p>
+    <p>Choose the style under <b>Settings | Appearance &amp; Behavior | Sotto Icons</b>. Made to pair with the <b>Sotto</b> theme, and works with any dark theme.</p>
   ]]></description>
   <depends>com.intellij.modules.platform</depends>
   <resource-bundle>messages.SottoIconsBundle</resource-bundle>

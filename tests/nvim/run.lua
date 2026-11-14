@@ -159,6 +159,7 @@ local function static()
   check(not pcall(sotto.setup, { transparant = true }), where .. "an unknown option must be rejected")
   check(not pcall(sotto.setup, { transparent = "yes" }), where .. "a transparent that is not a boolean must be rejected")
   check(not pcall(sotto.setup, { black = "yes" }), where .. "a black that is not a boolean must be rejected")
+  check(not pcall(sotto.setup, { quiet = "yes" }), where .. "a quiet that is not a boolean must be rejected")
   check(not pcall(sotto.setup, { on_highlights = true }), where .. "an on_highlights that is not a function must be rejected")
   check(pcall(sotto.setup), where .. "setup without options must be accepted")
 end
@@ -271,14 +272,35 @@ local function black()
   check(vim.api.nvim_get_hl(0, { name = "Normal", link = false }).bg == nil, "black: transparent must still clear the page")
 end
 
+local function quiet()
+  local sotto = require("sotto")
+  local c = require("sotto.palette").colors
+  local icons = { "Azure", "Blue", "Cyan", "Green", "Grey", "Orange", "Yellow", "Purple", "Red" }
+  local tone = function(name) return hex(vim.api.nvim_get_hl(0, { name = "MiniIcons" .. name, link = false }).fg) end
+  sotto.setup({})
+  vim.cmd.colorscheme("sotto")
+  local tones = {}
+  for _, name in ipairs(icons) do
+    tones[tone(name)] = true
+  end
+  check(vim.tbl_count(tones) > 3, "quiet: without the option the icons must keep their separate tones")
+  sotto.setup({ quiet = true })
+  vim.cmd.colorscheme("sotto")
+  for _, name in ipairs(icons) do
+    check(tone(name) == c.breath, "quiet: MiniIcons" .. name .. " is " .. tone(name) .. ", expected breath")
+  end
+  sotto.setup({})
+end
+
 static()
 local count, probe = scheme(true)
 scheme(false, probe)
 black()
+quiet()
 
 if #failures > 0 then
   table.sort(failures)
   io.stderr:write(table.concat(failures, "\n") .. "\n" .. #failures .. " of " .. checks .. " checks failed\n")
   os.exit(1)
 end
-io.stdout:write("sotto: " .. checks .. " checks passed, " .. count .. " groups, transparent, solid and black\n")
+io.stdout:write("sotto: " .. checks .. " checks passed, " .. count .. " groups, transparent, solid, black and quiet\n")

@@ -1,6 +1,6 @@
 local M = {}
 
-local types = { transparent = "boolean", black = "boolean", on_highlights = "function" }
+local types = { transparent = "boolean", black = "boolean", quiet = "boolean", on_highlights = "function" }
 local config = {}
 
 function M.setup(opts)

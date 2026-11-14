@@ -13,7 +13,7 @@ return function(r)
   g.BlinkCmpDocCursorLine = { bg = r.near }
   g.CopilotSuggestion = { fg = r.breath }
   g.CopilotAnnotation = { fg = r.breath }
-  paint(g, r, "MiniIcons", {
+  paint(g, r, "MiniIcons", r.quiet and { breath = { "Azure", "Blue", "Cyan", "Green", "Grey", "Orange", "Yellow", "Purple", "Red" } } or {
     rest = { "Azure", "Blue" },
     form = { "Cyan", "Green" },
     murmur = { "Grey" },

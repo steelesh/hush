@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>dev.steelesh.sotto.icons</id>
   <name>Sotto Icons</name>
-  <vendor url="https://github.com/steelesh/sotto">steelesh</vendor>
+  <vendor url="https://sottotheme.com">steelesh</vendor>
   <description><![CDATA[
     <p>File and folder icons in the muted pastels of the Sotto theme.</p>
     <ul>

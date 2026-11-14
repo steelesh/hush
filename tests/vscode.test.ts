@@ -49,7 +49,7 @@ test("the extension manifest contributes color themes and file icons without exe
     publisher: "steelesh",
     license: meta.license,
     repository: meta.repository,
-    homepage: `${meta.repository.url}#readme`,
+    homepage: meta.homepage,
     bugs: { url: `${meta.repository.url}/issues` },
     engines: { vscode: manifest.engines.vscode },
     categories: ["Themes"],

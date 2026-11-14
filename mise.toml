@@ -26,7 +26,7 @@ run = "node src/build.ts --check"
 
 [tasks.test]
 description = "test the palette, the generated files and the neovim plugin"
-run = ["node --test tests/*.test.ts", "python3 scripts/test-jetbrains-icon-colors.py", "python3 scripts/test-jetbrains-icon-package.py", "nvim -l tests/nvim/run.lua"]
+run = ["node --test tests/*.test.ts", "nvim -l tests/nvim/run.lua"]
 
 [tasks.lint]
 description = "lint typescript, lua and shell, and check formatting and types"
@@ -63,10 +63,6 @@ run = [
 [tasks.ci]
 description = "run everything continuous integration runs"
 run = [{ task = "lint" }, { task = "check" }, { task = "test" }, { task = "validate" }]
-
-[tasks."jetbrains:local"]
-description = "package the theme with the installed intellij icon library in sotto colors, local only: it holds recolored jetbrains artwork"
-run = "node src/jetbrains-local.ts"
 
 [tasks."jetbrains:icons"]
 description = "build the sotto icons plugin for jetbrains ides into dist/"

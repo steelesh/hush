@@ -449,7 +449,7 @@ const manifest = (palette: Palette) =>
     publisher: "steelesh",
     license: meta.license,
     repository: meta.repository,
-    homepage: `${meta.repository.url}#readme`,
+    homepage: meta.homepage,
     bugs: { url: `${meta.repository.url}/issues` },
     engines: { vscode: "^1.100.0" },
     categories: ["Themes"],
@@ -473,7 +473,7 @@ export const vscode: Target = {
     { path: "themes/vscode/NOTICE", content: notice },
     {
       path: "themes/vscode/README.md",
-      content: `![Sotto](${asset("hero")})\n\n# Sotto\n\n${meta.description}\n\nColor themes: Sotto and Sotto Black. File icon themes: Sotto and Sotto Quiet.\n\n![Sotto icons](${asset("icons")})\n`,
+      content: `![Sotto](${asset("hero")})\n\n# Sotto\n\n${meta.description} See it at [sottotheme.com](${meta.homepage}).\n\nColor themes: Sotto and Sotto Black. File icon themes: Sotto and Sotto Quiet.\n\n![Sotto icons](${asset("icons")})\n`,
     },
   ],
 };

@@ -72,7 +72,7 @@ run = "node src/jetbrains-local.ts"
 description = "build the sotto icons plugin for jetbrains ides into dist/"
 depends = ["build"]
 dir = "jetbrains-icons"
-run = ["rm -rf build/distributions", "gradle --console=plain buildPlugin", "mkdir -p ../dist && cp build/distributions/sotto-icons-*.zip ../dist/"]
+run = ["rm -rf build/distributions", "gradle --console=plain buildPlugin", "mkdir -p ../dist && rm -f ../dist/sotto-icons-*.zip && cp build/distributions/sotto-icons-*.zip ../dist/"]
 
 [tasks."jetbrains:icons:check"]
 description = "test the sotto icons plugin and verify it against the supported ides"

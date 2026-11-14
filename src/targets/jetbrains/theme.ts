@@ -1098,7 +1098,7 @@ function ui(c: Colors, raw: Colors): Sheet {
     }),
     "AgentPicker.Advertiser.background": c.near,
     "Settings.Spotlight.borderColor": c.call,
-    "Settings.Spotlight.backgroundColor": veil("call", faint),
+    "Settings.Spotlight.backgroundColor": veil("still", half),
     "ProblemsView.projectAnalysisButtonBackground": c.near,
     "Panel.mouseShortcutBackground": c.lull,
     "ColorChooser.swatchesDefaultRecentColor": c.lull,

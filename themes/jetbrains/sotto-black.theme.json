@@ -1200,7 +1200,7 @@
     "Recap.errorForeground": "voice",
     "AgentPicker.Advertiser.background": "near",
     "Settings.Spotlight.borderColor": "call",
-    "Settings.Spotlight.backgroundColor": "#dda9a94d",
+    "Settings.Spotlight.backgroundColor": "#00000080",
     "ProblemsView.projectAnalysisButtonBackground": "near",
     "Panel.mouseShortcutBackground": "lull",
     "ColorChooser.swatchesDefaultRecentColor": "lull",

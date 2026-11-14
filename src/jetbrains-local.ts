@@ -57,12 +57,12 @@ try {
   const lib = join(stage, "sotto/lib");
   mkdirSync(lib, { recursive: true });
   execFileSync("zip", ["-X", "-q", "-r", join(lib, "sotto.jar"), "."], { cwd: resources });
-  const archive = join(stage, "sotto-jetbrains-icons.zip");
+  const archive = join(stage, "sotto-jetbrains-local.zip");
   execFileSync("zip", ["-X", "-q", "-r", archive, "sotto"], { cwd: stage });
-  renameSync(archive, join(dist, "sotto-jetbrains-icons.zip"));
+  renameSync(archive, join(dist, "sotto-jetbrains-local.zip"));
   renameSync(join(stage, "icon-coverage.json"), join(dist, "jetbrains-icon-coverage.json"));
   renameSync(verification, join(dist, "jetbrains-icon-verification.json"));
-  console.log("dist/sotto-jetbrains-icons.zip, local installed icon library in Sotto colors");
+  console.log("dist/sotto-jetbrains-local.zip, local installed icon library in Sotto colors");
   console.log("keep it local: it holds recolored JetBrains artwork that the MIT license here does not cover");
 } finally {
   rmSync(stage, { recursive: true, force: true });

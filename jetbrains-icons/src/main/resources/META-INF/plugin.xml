@@ -1,0 +1,27 @@
+<idea-plugin>
+  <id>dev.steelesh.sotto.icons</id>
+  <name>Sotto Icons</name>
+  <vendor url="https://github.com/steelesh/sotto">steelesh</vendor>
+  <description><![CDATA[
+    <p>File and folder icons in the muted pastels of the Sotto theme.</p>
+    <ul>
+      <li>File icons matched by file name and extension.</li>
+      <li>Folder badges matched by folder name.</li>
+      <li>Two styles, Color and Quiet, switched without a restart.</li>
+      <li>Class, package, source root, module and excluded folder icons stay the IDE's own.</li>
+    </ul>
+    <p>Choose the style under <b>Settings | Appearance &amp; Behavior | Sotto Icons</b>. Made for dark themes, and drawn to sit beside the Sotto theme's folders.</p>
+  ]]></description>
+  <depends>com.intellij.modules.platform</depends>
+  <resource-bundle>messages.SottoIconsBundle</resource-bundle>
+  <extensions defaultExtensionNs="com.intellij">
+    <fileIconProvider implementation="dev.steelesh.sotto.icons.SottoFileIconProvider" order="last"/>
+    <iconProvider implementation="dev.steelesh.sotto.icons.SottoFolderIconProvider"/>
+    <applicationConfigurable
+        parentId="appearance"
+        instance="dev.steelesh.sotto.icons.SottoIconsConfigurable"
+        id="dev.steelesh.sotto.icons.settings"
+        key="settings.title"
+        bundle="messages.SottoIconsBundle"/>
+  </extensions>
+</idea-plugin>

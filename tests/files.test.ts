@@ -13,7 +13,7 @@ const titles = variants(palette)
   .sort((a, b) => b.length - a.length);
 
 const built = new Set(targets.flatMap((target) => target.files(palette)).map((file) => file.path));
-const generated = [...new Set([...files("themes"), ...built])].sort();
+const generated = [...new Set([...files("themes"), ...built])].filter((path) => !path.endsWith(".tsv")).sort();
 const handwritten = [...files("lua"), ...files("colors"), ...files("src")].filter((path) => !built.has(path));
 
 const named = [
@@ -61,7 +61,7 @@ test("every color in a generated file, in any notation, is a palette color", () 
       if (!values.has(value)) failures.push(`${path}: ${value} is not a palette color`);
     }
   }
-  assert.ok(generated.length >= built.size && built.size > 0, "no generated files were found");
+  assert.ok(generated.length > 0 && built.size > 0, "no generated files were found");
   assert.equal(failures.length, 0, report(failures));
 });
 

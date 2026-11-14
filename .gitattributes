@@ -1,4 +1,5 @@
 * text=auto eol=lf
 themes/** linguist-generated
+jetbrains-icons/src/test/resources/conformance.tsv linguist-generated
 lua/sotto/palette.lua linguist-generated
 samples/** linguist-documentation

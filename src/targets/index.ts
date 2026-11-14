@@ -9,6 +9,7 @@ import { fastfetch } from "./fastfetch.ts";
 import { fzf } from "./fzf.ts";
 import { ghostty } from "./ghostty.ts";
 import { jetbrains } from "./jetbrains/index.ts";
+import { jetbrainsIcons } from "./jetbrains-icons.ts";
 import { lazygit } from "./lazygit.ts";
 import { lnav } from "./lnav.ts";
 import { neovim } from "./neovim.ts";
@@ -34,5 +35,6 @@ export const targets: Target[] = [
   bmd,
   vscode,
   jetbrains,
+  jetbrainsIcons,
   neovim,
 ];

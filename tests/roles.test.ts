@@ -189,6 +189,19 @@ for (const [folder, pick] of [
     snapshot[`themes/vscode/icons/${folder}/folder-${icon.name}.svg`] = [outline, ["badge", /fill="(#[0-9a-f]{6})"/, pick(icon.tone)]];
 }
 
+for (const [folder, pick] of [
+  ["color", (tone: Name) => tone],
+  ["quiet", (): Name => "breath"],
+] as const) {
+  for (const icon of icons.folders) {
+    snapshot[`themes/jetbrains-icons/icons/folders/${folder}/${icon.name}.svg`] = [
+      ["outline", /stroke="(#[0-9a-f]{6})"/, "rest"],
+      ["surface", /fill="(#[0-9a-f]{6})"/, "tint_change"],
+      ["badge", /fill="(#[0-9a-f]{6})" transform/, pick(icon.tone)],
+    ];
+  }
+}
+
 for (const icon of icons.files) {
   const path = `themes/jetbrains/icons/sotto/files/${icon.name}.svg`;
   if (built.has(path)) snapshot[path] = [["mark", /fill="(#[0-9a-f]{6})"/, icon.tone]];

@@ -1,3 +1,4 @@
+import { fileExtensions, fileNames, folderNames, languageIds } from "../icons/associations.ts";
 import { files, folders } from "../icons/catalog.ts";
 import { fileIcon, folderIcon } from "../icons/draw.ts";
 import { spaced } from "../icons/library.ts";
@@ -25,28 +26,6 @@ function drawings(colors: Colors, variant: Variant): Drawing[] {
   ];
 }
 
-function associations(field: "extensions" | "filenames" | "languages"): Record<string, string> {
-  const result: Record<string, string> = {};
-  for (const icon of files) {
-    for (const value of icon[field] ?? []) {
-      if (result[value]) throw new Error(`vscode icons: ${field} ${value} is claimed by both ${result[value]} and ${icon.name}`);
-      result[value] = icon.name;
-    }
-  }
-  return result;
-}
-
-function named(): Record<string, string> {
-  const result: Record<string, string> = {};
-  for (const icon of folders) {
-    for (const value of icon.names) {
-      if (result[value]) throw new Error(`vscode icons: folder ${value} is claimed by both ${result[value]} and folder-${icon.name}`);
-      result[value] = `folder-${icon.name}`;
-    }
-  }
-  return result;
-}
-
 export function iconSheet(colors: Colors): string {
   const variant = iconThemes[0];
   if (!variant) throw new Error("vscode icons: no icon theme to draw");
@@ -66,14 +45,8 @@ export function iconSheet(colors: Colors): string {
 }
 
 export function vscodeIcons(colors: Colors): File[] {
-  const folderNames = named();
-  const maps = {
-    folderNames,
-    folderNamesExpanded: folderNames,
-    fileExtensions: associations("extensions"),
-    fileNames: associations("filenames"),
-    languageIds: associations("languages"),
-  };
+  const badged = Object.fromEntries(Object.entries(folderNames).map(([name, icon]) => [name, `folder-${icon}`]));
+  const maps = { folderNames: badged, folderNamesExpanded: badged, fileExtensions, fileNames, languageIds };
   return iconThemes.flatMap((variant) => {
     const drawn = drawings(colors, variant);
     return [

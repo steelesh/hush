@@ -34,6 +34,8 @@ jobs:
         run: mise run vscode
       - name: package the jetbrains plugin
         run: mise run jetbrains
+      - name: package the jetbrains icons plugin
+        run: mise run jetbrains:icons
       - name: keep the packages for the publish jobs
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -41,6 +43,7 @@ jobs:
           path: |
             dist/sotto-*.vsix
             dist/sotto-jetbrains.zip
+            dist/sotto-icons-*.zip
             dist/sotto.icls
             dist/sotto-black.icls
           if-no-files-found: error
@@ -127,6 +130,15 @@ jobs:
             --header "Authorization: Bearer $JETBRAINS_TOKEN" \
             --form xmlId=dev.steelesh.sotto \
             --form file=@dist/sotto-jetbrains.zip \
+            https://plugins.jetbrains.com/api/updates/upload
+          if ! curl --fail --silent --show-error "https://plugins.jetbrains.com/plugins/list?pluginId=dev.steelesh.sotto.icons" | grep -q "<idea-plugin"; then
+            echo "::notice title=jetbrains icons skipped::sotto icons is not listed on the marketplace yet, its first version is uploaded by hand"
+            exit 0
+          fi
+          curl --fail-with-body --silent --show-error \
+            --header "Authorization: Bearer $JETBRAINS_TOKEN" \
+            --form xmlId=dev.steelesh.sotto.icons \
+            --form "file=@$(ls dist/sotto-icons-*.zip)" \
             https://plugins.jetbrains.com/api/updates/upload
 
   github:

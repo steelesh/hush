@@ -126,20 +126,19 @@ jobs:
             echo "::notice title=jetbrains skipped::the release environment has no JETBRAINS_TOKEN secret"
             exit 0
           fi
-          curl --fail-with-body --silent --show-error \
-            --header "Authorization: Bearer $JETBRAINS_TOKEN" \
-            --form xmlId=dev.steelesh.sotto \
-            --form file=@dist/sotto-jetbrains.zip \
-            https://plugins.jetbrains.com/api/updates/upload
-          if ! curl --fail --silent --show-error "https://plugins.jetbrains.com/plugins/list?pluginId=dev.steelesh.sotto.icons" | grep -q "<idea-plugin"; then
-            echo "::notice title=jetbrains icons skipped::sotto icons is not listed on the marketplace yet, its first version is uploaded by hand"
-            exit 0
-          fi
-          curl --fail-with-body --silent --show-error \
-            --header "Authorization: Bearer $JETBRAINS_TOKEN" \
-            --form xmlId=dev.steelesh.sotto.icons \
-            --form "file=@$(ls dist/sotto-icons-*.zip)" \
-            https://plugins.jetbrains.com/api/updates/upload
+          publish() {
+            if ! curl --fail --silent --show-error "https://plugins.jetbrains.com/plugins/list?pluginId=$1" | grep -q "<idea-plugin"; then
+              echo "::notice title=jetbrains skipped::$1 is not listed on the marketplace yet, its first version is approved by hand"
+              return 0
+            fi
+            curl --fail-with-body --silent --show-error \
+              --header "Authorization: Bearer $JETBRAINS_TOKEN" \
+              --form "xmlId=$1" \
+              --form "file=@$2" \
+              https://plugins.jetbrains.com/api/updates/upload
+          }
+          publish dev.steelesh.sotto dist/sotto-jetbrains.zip
+          publish dev.steelesh.sotto.icons "$(ls dist/sotto-icons-*.zip)"
 
   github:
     needs: build
